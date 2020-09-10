@@ -1,6 +1,6 @@
 # JuliaPro #
 
-# (v1.5.0-2) #
+# (v1.5.1-1) #
 
 # Installation Manual and Quickstart Guide #
 
@@ -44,7 +44,7 @@ Once the requirements are met, you can start the JuliaPro installation using the
 
 \ ![](media/win1.png)
 
-To execute the installer with Administrative privileges, right click on the JuliaPro_v1.5.0-2.exe and select “Run As Administrator”.  To execute the installer as the current user, just double-click on the executable.
+To execute the installer with Administrative privileges, right click on the JuliaPro_v1.5.1-1.exe and select “Run As Administrator”.  To execute the installer as the current user, just double-click on the executable.
 
 \ ![](media/win2.png)
 
@@ -118,7 +118,7 @@ Upon completion of the installer, press close to exit the installer.
 
 For shared network drive installations, if the directory into which JuliaPro was installed is currently accessible by multiple users, then an Administrator may desire to set access permissions for their JuliaPro installation to be read-only for non-Administrative users.  
 
-By setting the JuliaPro installation to be read-only, only administrative users will be able to perform operations via Julia’s built-in Pkg package manager.  Operations such as `Pkg.add`, `Pkg.update`, and `Pkg.rm` can only be performed by users with write access to the `pkgs-1.5.0-2` directory of the Julia Professional installation.
+By setting the JuliaPro installation to be read-only, only administrative users will be able to perform operations via Julia’s built-in Pkg package manager.  Operations such as `Pkg.add`, `Pkg.update`, and `Pkg.rm` can only be performed by users with write access to the `pkgs-1.5.1-1` directory of the Julia Professional installation.
 
 Restricting write access to these directories to a single administrative user will ensure a consistent state of packages for all users of a shared installation.
 
@@ -126,7 +126,7 @@ To prevent unnecessary precompilation of Julia packages from being triggered by 
 
 **NOTE: Copying of Atom Configuration Information on First Launch of Juno.**
 
-For shared network drive installation, the first time a user launches Juno from their client machine, a `.atom` configuration folder will be copied from the Julia Professional installation into the directory `%HOMEDRIVE%\%HOMEPATH%\JuliaPro_Juno_1.5.0-2`.  This directory stores user specific configuration information for use of Juno for JuliaPro.
+For shared network drive installation, the first time a user launches Juno from their client machine, a `.atom` configuration folder will be copied from the Julia Professional installation into the directory `%HOMEDRIVE%\%HOMEPATH%\JuliaPro_Juno_1.5.1-1`.  This directory stores user specific configuration information for use of Juno for JuliaPro.
 
 If you're using Windows Server 2012; Then you need to install following additional software's inorder to perform Pkg operations in JuliaPro  
 
@@ -158,7 +158,7 @@ If the Desktop Shortcuts components were selected during installation of the Jul
 
 \ ![](media/win11.png)
 
-If the Start Menu Shortcuts components were selected during the installation process, then you should have also an entry for the JuliaPro Command Prompt located under “Start -> JuliaPro -> Juno for JuliaPro 1.5.0-2”
+If the Start Menu Shortcuts components were selected during the installation process, then you should have also an entry for the JuliaPro Command Prompt located under “Start -> JuliaPro -> Juno for JuliaPro 1.5.1-1”
 
 Upon initially launching Juno, you will be presented with the following window.
 
@@ -207,7 +207,7 @@ Once the authentication is done, your `token.toml` file download should begin im
 \ ![](media/linux3.png)
 
 
-Once you have `token.toml` , rename this file as `auth.toml` and then you can move this file to the machine where you have installed JuliaPro (If you're downloading token from a different machine), the default location to place this file is `<HOME-FOLDER>/.juliapro/JuliaPro_v1.5.0-2/servers/pkg.juliahub.com/auth.toml` i.e create following path `.juliapro/JuliaPro_v1.5.0-2/servers/pkg.juliahub.com/` in your home directory and place `auth.toml` in the path you just created. Once you place the file in this location, all subsequent `Pkg` and `BinaryProvider.jl` operations will use this token to authenticate the download from `pkg.juliahub.com`
+Once you have `token.toml` , rename this file as `auth.toml` and then you can move this file to the machine where you have installed JuliaPro (If you're downloading token from a different machine), the default location to place this file is `<HOME-FOLDER>/.juliapro/JuliaPro_v1.5.1-1/servers/pkg.juliahub.com/auth.toml` i.e create following path `.juliapro/JuliaPro_v1.5.1-1/servers/pkg.juliahub.com/` in your home directory and place `auth.toml` in the path you just created. Once you place the file in this location, all subsequent `Pkg` and `BinaryProvider.jl` operations will use this token to authenticate the download from `pkg.juliahub.com`
 
 
 
