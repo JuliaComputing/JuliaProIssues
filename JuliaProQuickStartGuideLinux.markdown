@@ -25,6 +25,8 @@
  [*4.2. Getting Started with JuliaPro*](#getting-started-with-juliapro)
  
  [*5. Using JuliaPro in a non-GUI environment*](#using-juliapro-in-a-non-gui-environment)
+ 
+ [*6. Cloud computing with JuliaPro*](#cloud-computing-with-juliapro)
 
 
 1. Objective
@@ -185,3 +187,110 @@ Once the authentication is done, your `token.toml` file download should begin im
 
 
 Once you have `token.toml` , rename this file as `auth.toml` and then you can move this file to the machine where you have installed JuliaPro, the default location to place this file is `~/.juliapro/JuliaPro_v1.5.1-1/servers/pkg.juliahub.com/auth.toml` i.e create following path `.juliapro/JuliaPro_v1.5.1-1/servers/pkg.juliahub.com/` in your home directory and place `auth.toml` in the path you just created. Once you place the file in this location, all subsequent `Pkg` and `BinaryProvider.jl` operations will use this token to authenticate the download from `pkg.juliahub.com`
+
+
+6. Cloud computing with JuliaPro
+=========================================
+
+JuliaPro has built-in support to submit jobs to [JuliaHub](https://juliahub.com) or your private [JuliaRun](https://juliacomputing.com/products/juliarun) instance, you can bring up cloud compute UI; either by executing following commands in Atom 
+Command Palette (Press `Ctrl+Shift+P` while focused in an editor pane to see command palette pop up) or by using the cloud compute buttons in the Julia toolbar.
+
+* Julia Run: Run File 
+* Julia Run: Show Jobs
+
+The cloud compute buttons are located at the bottom of the Julia toolbar, so you need to place the mouse pointer on the toolbar and scroll down to  the bottom to locate the cloud compute buttons, relevant cloud compute buttons are shown in below screenshot (Circled in Red and Yellow along with the description).
+
+\ ![](media/JuliaRun1.png)
+
+Following prerequisites need to be satisfied before using the cloud compute feature in JuliaPro
+
+1. You need a valid token for the server to which you're submitting the job, if a valid token is not found; then cloud compute module will trigger the authentication mechanism to download a valid token from the server. In case of JuliaHub, a browser Window will open up requesting you to login using one of the following authentication mechanisms.
+
+
+\ ![](media/JuliaRun2.PNG)
+
+Once you successfully login, you should see following message in your browser, this message indicates the token download was successful, you can return back to the IDE and wait until the cloud compute module connects to the server.
+
+\ ![](media/auth3.png)
+
+2. If you're submitting jobs to JuliaHub; then make sure you have enough credits to run the job, if you don't have any JuliaHub cloud compute credits; then you can always login to JuliaHub website https://juliahub.com and provide payment details to which the cloud compute charges will be billed. If you're submitting jobs to your private JuliaRun instance; then make sure the account associated with `~/.julia/servers/<Your-domain-name>/auth.toml` is authorized to run the jobs on your JuliaRun instance.
+
+3. You should be using JuliaPro v1.5.1-1 or higher
+
+
+Once all the prerequisites are satisfied, you can follow these steps to start submitting jobs to your server
+
+1. Open the project (In JuliaPro IDE) that requires to be ran on the cloud instance 
+2. Click on the "Show JuliaRun jobs" button from the Julia toolbar or execute following command in Command Palette: `Julia Run: Show Jobs`, this should open up the cloud compute UI, you should also see a message saying "Connecting to JuliaRun"
+
+\ ![](media/JuliaRun3.PNG)
+
+3. Wait until the cloud compute module connects to your server, if all the prerequisites are satisfied, you should see the "Start job" button enabled once the connection is established, you should also be able to see all the past jobs that you submitted (If you have any).
+
+\ ![](media/JuliaRun4.PNG)
+
+4. Select the appropriate configuration for the workers over which your project will be ran, if you're using JuliaHub; then make sure to limit your expenditure for the current job, either based on time or by Dollars using "Limit by" toggle button, the estimate cost per hour is displayed in the same configuration window, this cost is relative to the worker configuration you selected. For more details regarding CPU and GPU configurations, please refer to following documentation: https://docs.juliahub.com/
+
+5. Click on "Start job" button to execute your project on the cloud instance, you should see a popup in your IDE saying "Job submitted", your job should also appear in the "Job list"
+
+\ ![](media/JuliaRun5.PNG)
+
+6. Once the status of your job changes from "Submitted" to "Running", you can click on "Logs" button next to your job to see the progress of your project execution.
+
+\ ![](media/JuliaRun6.png)
+
+7. A log file should open up in log viewer, these logs are not "live", you need to hit the refresh button inorder to fetch the latest logs from the server.
+
+\ ![](media/JuliaRun7.png)
+
+
+8. Once your project execution completes, the results button will get enabled (If your script stored results in a file) and the job status should now say "Completed", you can click on the "Results" button to download your results from the server. An explorer Window should open up as soon as you click on the "Results" button, you can navigate and store the results file in an appropriate location.
+
+
+\ ![](media/JuliaRun8.PNG)
+
+9. Once the result file download completes, you should see a popup confirming the same
+
+\ ![](media/JuliaRun9.PNG)
+
+
+10. You can choose to open the results file in Atom IDE or any other software to validate it.
+
+\ ![](media/JuliaRun10.PNG)
+
+11. You can interrupt a "Running" job by clicking on the "Stop"button, this button is enabled only if the job status is "Running", you should also see a popup that confirms your job was interrupted successfully and job status on interrupted jobs should be "Stopped"
+
+\ ![](media/JuliaRun11.PNG)
+
+
+Below source code was used in above example
+```
+@everywhere function hello()
+    @show DEPOT_PATH
+end
+@everywhere hello()
+
+try
+    using Example
+    write("abc.txt", "Example.jl is present")
+catch
+    write("abc.txt","$DEPOT_PATH ERROR COULD NOT FIND EXAMPLE.JL")
+end
+ENV["RESULTS_FILE_TO_UPLOAD"] = "abc.txt"
+
+```
+
+Contents of Project.toml and Manifest.toml in the example project
+```
+[deps]
+Example = "7876af07-990d-54b4-ab0e-23690620f79a"
+```
+
+```
+# This file is machine-generated - editing it directly is not advised
+
+[[Example]]
+git-tree-sha1 = "46e44e869b4d90b96bd8ed1fdcf32244fddfb6cc"
+uuid = "7876af07-990d-54b4-ab0e-23690620f79a"
+version = "0.5.3"
+```
