@@ -1,6 +1,6 @@
 # JuliaPro #
 
-# (v1.5.1-1) #
+# (v1.5.2-1) #
 
 # Installation Manual and Quickstart Guide #
 
@@ -37,7 +37,7 @@ This guide details the installation procedure and usage of the base JuliaPro pac
 2. Prerequisites
 =================
 
-  * `JuliaPro-1.5.1-1.sh` file (This file can be downloaded from https://juliacomputing.com/ )
+  * `JuliaPro-1.5.2-1.sh` file (This file can be downloaded from https://juliacomputing.com/ )
   * An installation of CentOS 7, Ubuntu 14.04, or Ubuntu 16.04, RHEL 7
   * 5 GB of disk space
   * Installation of required system libraries using Administrator or sudo privileges
@@ -89,17 +89,17 @@ sudo apt-get -y install libgconf-2-4
 
 Once the system requirements are met, you can start the JuliaPro installation using the installation script.  
 
-To execute the `JuliaPro-1.5.1-1.sh` script, you might first need to change the execution permissions on the script. Use following command to change the execution permission 
+To execute the `JuliaPro-1.5.2-1.sh` script, you might first need to change the execution permissions on the script. Use following command to change the execution permission 
 
 ```
-chmod 777 JuliaPro-1.5.1-1.sh
+chmod 777 JuliaPro-1.5.2-1.sh
 ```
 
-The `JuliaPro-1.5.1-1.sh` script takes one argument; The absolute path to the directory into which you wish to install JuliaPro.
+The `JuliaPro-1.5.2-1.sh` script takes one argument; The absolute path to the directory into which you wish to install JuliaPro.
 
 Example:-
 ```
-./JuliaPro-1.5.1-1.sh /home/julia/
+./JuliaPro-1.5.2-1.sh /home/julia/
 ```
 
 Immediately after the execution of JuliaPro script, you will be prompted with following question 
@@ -130,7 +130,7 @@ Upon completion of the installer, the contents of the JuliaPro installation dire
 JuliaPro can be launched from the JuliaPro installation directory as shown below:
 
 ```
-$ cd <juliapro>/JuliaPro-1.5.1-1
+$ cd <juliapro>/JuliaPro-1.5.2-1
 $ ./Launch_JuliaPro
 ```
 
@@ -186,7 +186,7 @@ Once the authentication is done, your `token.toml` file download should begin im
 \ ![](media/linux3.png)
 
 
-Once you have `token.toml` , rename this file as `auth.toml` and then you can move this file to the machine where you have installed JuliaPro, the default location to place this file is `~/.juliapro/JuliaPro_v1.5.1-1/servers/pkg.juliahub.com/auth.toml` i.e create following path `.juliapro/JuliaPro_v1.5.1-1/servers/pkg.juliahub.com/` in your home directory and place `auth.toml` in the path you just created. Once you place the file in this location, all subsequent `Pkg` and `BinaryProvider.jl` operations will use this token to authenticate the download from `pkg.juliahub.com`
+Once you have `token.toml` , rename this file as `auth.toml` and then you can move this file to the machine where you have installed JuliaPro, the default location to place this file is `~/.juliapro/JuliaPro_v1.5.2-1/servers/pkg.juliahub.com/auth.toml` i.e create following path `.juliapro/JuliaPro_v1.5.2-1/servers/pkg.juliahub.com/` in your home directory and place `auth.toml` in the path you just created. Once you place the file in this location, all subsequent `Pkg` and `BinaryProvider.jl` operations will use this token to authenticate the download from `pkg.juliahub.com`
 
 
 6. Cloud computing with JuliaPro
@@ -215,7 +215,7 @@ Once you successfully login, you should see following message in your browser, t
 
 2. If you're submitting jobs to JuliaHub; then make sure you have enough credits to run the job, if you don't have any JuliaHub cloud compute credits; then you can always login to JuliaHub website https://juliahub.com and provide payment details to which the cloud compute charges will be billed. If you're submitting jobs to your private JuliaRun instance; then make sure the account associated with `~/.julia/servers/<Your-domain-name>/auth.toml` is authorized to run the jobs on your JuliaRun instance.
 
-3. You should be using JuliaPro v1.5.1-1 or higher
+3. You should be using JuliaPro v1.5.2-1 or higher
 
 
 Once all the prerequisites are satisfied, you can follow these steps to start submitting jobs to your server
