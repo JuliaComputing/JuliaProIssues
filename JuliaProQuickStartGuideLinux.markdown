@@ -186,7 +186,7 @@ Once the authentication is done, your `token.toml` file download should begin im
 \ ![](media/linux3.png)
 
 
-Once you have `token.toml` , rename this file as `auth.toml` and then you can move this file to the machine where you have installed JuliaPro, the default location to place this file is `~/.juliapro/JuliaPro_v1.5.2-1/servers/pkg.juliahub.com/auth.toml` i.e create following path `.juliapro/JuliaPro_v1.5.2-1/servers/pkg.juliahub.com/` in your home directory and place `auth.toml` in the path you just created. Once you place the file in this location, all subsequent `Pkg` and `BinaryProvider.jl` operations will use this token to authenticate the download from `pkg.juliahub.com`
+Once you have `token.toml` , rename this file as `auth.toml` and then you can move this file to the machine where you have installed JuliaPro, the default location to place this file is `~/.julia/servers/pkg.juliahub.com/auth.toml` i.e create following path `.julia/servers/pkg.juliahub.com/` in your home directory and place `auth.toml` in the path you just created. Once you place the file in this location, all subsequent `Pkg` operations will use this token to authenticate the download from `pkg.juliahub.com`
 
 
 6. Cloud computing with JuliaPro

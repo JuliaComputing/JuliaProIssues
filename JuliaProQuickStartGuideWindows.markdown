@@ -13,6 +13,8 @@
  [*3. Installing JuliaPro*](#installing-juliapro)
  
  [*3.1. Installing JuliaPro on legacy Windows systems like Windows 7*](#installing-juliapro-on-legacy-windows-systems-like-windows-7)
+ 
+ [*3.2. Installing JuliaPro through commandline*](#installing-juliapro-through-commandline)
 
  [*4. Using JuliaPro*](#using-juliapro)
  
@@ -149,6 +151,29 @@ If you're using Windows 7 or any other unsupported Windows operating systems; Th
 It is recommended that users on these legacy Windows systems install and use a terminal besides cmd.exe since the default terminal application has known issues which affect its usability with Julia and other libuv-based cross-platform software.
 
 
+3.2 Installing JuliaPro through commandline
+-------------------------------------------
+
+JuliaPro installer supports silent or non-GUI installation, this is especially useful if you would like to install JuliaPro pragmatically (Using a script). You can invoke the silent mode installation by passing `/S` flag to the JuliaPro binary. Following is the shortest possible command that's required to install JuliaPro, after executing following command, JuliaPro binary will create an asynchronous process for the JuliaPro installer and returns back the control of your command prompt (Or PowerShell prompt), you can exit the command or PowerShell prompt (If required) from which you initiated the JuliaPro installation, the asynchronous process will continue to run in the background and will exit automatically once the installation is complete.
+
+```
+JuliaPro_v1.5.0-2.exe /S
+```
+With above command, JuliaPro will be installed with default values.
+
+Following flags are applicable only when used with `/S`, all these flags are optional
+
+
+* `/D=`    Specify the installation directory using this option, it must be the last parameter used in the command line argument and must not contain any quotes, even if the path contains spaces. Only absolute paths are supported.
+* `/JuliaTeam_server=`      Specify your JuliaTeam package server domain name.
+
+
+By default all the components are enabled, use following options to disable components during installation.
+
+* `/SSHORT`    Disables creation of shortcuts in StartMenu
+* `/DSHORT`    Disables creation of shortcuts on your Desktop
+* `/FILEASO`   Disables file association
+
 
 4. Using JuliaPro
 =========================================
@@ -209,7 +234,7 @@ Once the authentication is done, your `token.toml` file download should begin im
 \ ![](media/linux3.png)
 
 
-Once you have `token.toml` , rename this file as `auth.toml` and then you can move this file to the machine where you have installed JuliaPro (If you're downloading token from a different machine), the default location to place this file is `<HOME-FOLDER>/.juliapro/JuliaPro_v1.5.2-1/servers/pkg.juliahub.com/auth.toml` i.e create following path `.juliapro/JuliaPro_v1.5.2-1/servers/pkg.juliahub.com/` in your home directory and place `auth.toml` in the path you just created. Once you place the file in this location, all subsequent `Pkg` and `BinaryProvider.jl` operations will use this token to authenticate the download from `pkg.juliahub.com`
+Once you have `token.toml` , rename this file as `auth.toml` and then you can move this file to the machine where you have installed JuliaPro (If you're downloading token from a different machine), the default location to place this file is `<HOME-FOLDER>\.julia\servers\pkg.juliahub.com\auth.toml` i.e create following path `.julia\servers\pkg.juliahub.com\` in your home directory and place `auth.toml` in the path you just created. Once you place the file in this location, all subsequent `Pkg` operations will use this token to authenticate the download from `pkg.juliahub.com`
 
 
 5. Cloud computing with JuliaPro
