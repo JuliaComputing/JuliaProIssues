@@ -351,7 +351,7 @@ version = "0.5.3"
 
 Please use `Add or Remove Programs` to uninstall JuliaPro on Windows, this will make sure the uninstaller will get executed with appropriate privileges required to remove JuliaPro installation. 
 
-None of the contents in following folders are removed by JuliaPro uninstaller, if you're not planning on reusing the contents of these folders, then you can remove following folders manually:
+JuliaPro stores end-user profiles outside the installation directory to ease the upgrade process, if you're not planning on reusing the contents of these folders, then you can remove following directories manually:
 
 * Julia packages that are located in following path: `<Home-Directory>\.julia` 
 * IJulia kernel located in following path:
