@@ -23,8 +23,10 @@
  [*4.2. Getting Started with JuliaPro*](#getting-started-with-juliapro)
  
  [*5. Cloud computing with JuliaPro*](#cloud-computing-with-juliapro)
+ 
+ [*6. Uninstalling JuliaPro*](#uninstalling-juliapro)
 
- [*6. Trademark Usage*](#trademark-usage)
+ [*7. Trademark Usage*](#trademark-usage)
 
  1. Objective
 ==============
@@ -344,7 +346,29 @@ version = "0.5.3"
 
 
 
-6. Trademark Usage
+6. Uninstalling JuliaPro
+===================
+
+Please use `Add or Remove Programs` to uninstall JuliaPro on Windows, this will make sure the uninstaller will get executed with appropriate privileges required to remove JuliaPro installation. 
+
+None of the contents in following folders are removed by JuliaPro uninstaller, if you're not planning on reusing the contents of these folders, then you can remove following folders manually:
+
+* Julia packages that are located in following path: `<Home-Directory>\.julia` 
+* IJulia kernel located in following path:
+```
+<Home-Directory>\AppData\Roaming\jupyter\kernels\juliapro_v1.5.2-1-1.5
+```
+ If IJulia kernels were created for system wide usage then:
+```
+%PROGRAMDATA%\jupyter\kernels\juliapro_v1.5.2-1-1.5
+```
+* Atom cache folder in following location: `<Home-Directory>\AppData\Roaming\Atom`
+
+* Atom package directory: `<Home-Directory>\.atom`
+
+NOTE:- Other applications might be using above directories, please be cautious while removing above folders.
+
+7. Trademark Usage
 ===================
 
 Microsoft<sup>®</sup> and Windows<sup>®</sup> are registered trademarks of Microsoft Corporation.

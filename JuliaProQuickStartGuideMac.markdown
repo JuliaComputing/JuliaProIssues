@@ -21,6 +21,8 @@
  [*4.1. Using Juno*](#using-juno)
  
  [*5. Cloud computing with JuliaPro*](#cloud-computing-with-juliapro)
+ 
+ [*6. Uninstalling JuliaPro*](#uninstalling-juliapro)
 
 1. Objective
 ==============
@@ -288,3 +290,27 @@ git-tree-sha1 = "46e44e869b4d90b96bd8ed1fdcf32244fddfb6cc"
 uuid = "7876af07-990d-54b4-ab0e-23690620f79a"
 version = "0.5.3"
 ```
+
+
+6. Uninstalling JuliaPro
+===================
+
+You can follow the instructions listed in following URL to remove JuliaPro: https://support.apple.com/en-us/HT202235 , instructions in that link details on how to remove an app in general, but same instructions can be applied to removing JuliaPro as well. 
+
+JuliaPro stores end-user profiles outside the installation directory to ease the upgrade process, if you're not planning on reusing the contents of these folders, then you can remove following directories manually:
+
+* Julia packages that are located in following path: `~/.julia` 
+* IJulia kernel located in following path: `~/Library/Jupyter/kernels/juliapro_v1.5.2-1-1.5`
+* Atom cache, package and temporary folders from following locations: 
+    * `~/.julia_atom_1.5.2-1`
+    * `~/.atom`
+    * `~/Library/Preferences/com.github.atom.plist`
+    * `~/"Library/Application Support/com.github.atom.ShipIt"`
+    * `~/"Library/Application Support/Atom"`
+    * `~/"Library/Saved Application State/com.github.atom.savedState"`
+    * `~/Library/Caches/com.github.atom`
+    * `~/Library/Caches/com.github.atom.Shipit`
+    * `~/Library/Caches/Atom`
+    * `~/Library/WebKit/com.github.atom`
+
+NOTE:- Other applications might be using above directories, please be cautious while removing above folders.

@@ -27,6 +27,8 @@
  [*5. Using JuliaPro in a non-GUI environment*](#using-juliapro-in-a-non-gui-environment)
  
  [*6. Cloud computing with JuliaPro*](#cloud-computing-with-juliapro)
+ 
+ [*7. Uninstalling JuliaPro*](#uninstalling-juliapro)
 
 
 1. Objective
@@ -294,3 +296,18 @@ git-tree-sha1 = "46e44e869b4d90b96bd8ed1fdcf32244fddfb6cc"
 uuid = "7876af07-990d-54b4-ab0e-23690620f79a"
 version = "0.5.3"
 ```
+
+
+7. Uninstalling JuliaPro
+===================
+
+Most of the JuliaPro contents are present in the installation directory, so removing JuliaPro installation directory essentially uninstalls JuliaPro from your Linux system. 
+
+JuliaPro stores end-user profiles outside the installation directory to ease the upgrade process, if you're not planning on reusing the contents of these folders, then you can remove following directories manually:
+
+* Julia packages that are located in following path: `~/.julia` 
+* IJulia kernel located in following path: `~/.local/share/jupyter/kernels/juliapro_v1.5.2-1-1.5`
+* Atom cache folder in following location: `~/.config/Atom/`
+* Atom package directories: `~/.julia_atom_1.5.2-1` and `~/.atom`
+
+NOTE:- Other applications might be using above directories, please be cautious while removing above folders.
